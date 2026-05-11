@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Package') {
             steps {
-                bat 'mvn package -DskipTests'
+                bat 'mvn clean package -Dmaven.javadoc.skip=true -DskipTests'
             }
         }
     }
