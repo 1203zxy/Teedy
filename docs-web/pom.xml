@@ -143,6 +143,14 @@
         <directory>src/main/resources</directory>
       </resource>
     </resources>
+    <plugins>
+      <!-- Maven Site插件 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.12.1</version>
+      </plugin>
+    </plugins>
   </build>
 
   <profiles>
@@ -185,8 +193,11 @@
                 <docs.home>../data/docs</docs.home>
               </systemProperties>
               <webApp>
-                <contextPath>/docs-web</contextPath>
+                <contextPath>/</contextPath>
                 <overrideDescriptor>${project.basedir}/src/dev/main/webapp/web-override.xml</overrideDescriptor>
+                <resourceBases>
+                  <resourceBase>${project.basedir}/src/main/webapp/src</resourceBase>
+                </resourceBases>
               </webApp>
             </configuration>
           </plugin>
